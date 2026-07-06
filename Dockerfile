@@ -69,7 +69,7 @@ RUN pg_dump --version | grep -q 'PostgreSQL) 18\.' || \
 # 1. Install Dependencies
 FROM base AS deps
 WORKDIR /app
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml scripts ./
 RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store \
     pnpm install --frozen-lockfile
 
